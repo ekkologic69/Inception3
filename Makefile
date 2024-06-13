@@ -6,18 +6,18 @@ up : ${SRCS}
 	@sudo docker-compose -f ${SRCS} up 
 
 build : ${SRCS}
-	@mkdir -p srcs/data/wp srcs/data/db 
+	@mkdir -p /home/maboulho/data/db /home/maboulho/data/wp
 	@sudo docker-compose -f ${SRCS} build
 
 down :
 	@sudo docker-compose -f ${SRCS} down
 	
 clean :
-	@sudo docker system prune -a 
+	@sudo docker system prune -af
 	# docker volume rm $(docker volume ls -q)
 
 fclean: clean
-	sudo rm -rf srcs/data
+	sudo rm -rf /home/maboulho/data
 
 re: fclean build up
 

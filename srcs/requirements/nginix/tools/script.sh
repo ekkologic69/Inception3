@@ -12,7 +12,7 @@ echo "
       server_name www.maboulho.42.fr maboulho.42.fr;
     
      ssl_certificate /etc/ssl/certs/nginx-selfsigned.crt;
-     ssl_certificate_key /etc/ssl/private/nginx-selfsigned.key;" > /etc/nginx/sites-available/default
+     ssl_certificate_key /etc/ssl/private/nginx-selfsigned.key;" > /etc/nginx/conf.d/test.conf
 
 
     echo '
@@ -28,6 +28,6 @@ echo "
             include fastcgi_params;
             fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
         }
-} ' >> /etc/nginx/sites-available/default
+} ' >> /etc/nginx/conf.d/test.conf
 
 nginx -g "daemon off;"

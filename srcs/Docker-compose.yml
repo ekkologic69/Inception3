@@ -1,21 +1,6 @@
 version: "3.5"
 
-networks:
-    inception:
-      driver: bridge
-volumes:
-    wordpress:
-              driver: local
-              driver_opts:
-                      device: /home/maboulho/Desktop/inception/srcs/data/wp
-                      type: none
-                      o: bind
-    mariadb:
-              driver: local
-              driver_opts:
-                      device: /home/maboulho/Desktop/inception/srcs/data/db
-                      type: none
-                      o: bind
+
 services:
   nginx:
     container_name: nginx
@@ -60,5 +45,21 @@ services:
     networks:
       - inception
     restart: always
+networks:
+    inception:
+      driver: bridge
+volumes:
+    wordpress:
+              driver: local
+              driver_opts:
+                      device: /home/maboulho/data/wp
+                      type: none
+                      o: bind
+    mariadb:
+              driver: local
+              driver_opts:
+                      device: /home/maboulho/data/db
+                      type: none
+                      o: bind
   
   
